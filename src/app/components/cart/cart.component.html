@@ -1,0 +1,57 @@
+<div class="cart_empty_container" *ngIf="!products.length">
+  <span class="cart_empty">Your cart is empty.</span>
+  <a routerLink="/">Continue Shopping</a>
+</div>
+
+<div class="toast_container">
+  <ng-container #toastContainer></ng-container>
+</div>
+
+<div class="modal_container" [ngClass]="{'visible': hasModal}">
+  <ng-container #modalContainer></ng-container>
+</div>
+
+<div class="cart_board" *ngIf="products.length">
+  <table class="items_table">
+    <tbody class="cart_items">
+      <tr class="cart_item" *ngFor="let product of products">
+        <td class="item_img">
+          <div>
+            <button class="remove_item" type="button" (click)="showAlert(product.id)">
+              <i class="icon_close"></i>
+            </button>
+            <img src="{{ product.photo }}" alt="{{ product.name }}" title="{{ product.name }}" />
+          </div>
+        </td>
+        <td class="item_name">{{ product.name }}</td>
+        <td class="item_total">{{ product.quantity * product.price | currency: 'EUR':'symbol':'1.2-2':'pt' }}</td>
+        <td class="item_qty">
+          <div>
+            <button type="button" class="item_decrease"
+              [disabled]="getProductQuantity(product.id) === 1"
+              (click)="decrease(product.id)">
+              <i></i>
+            </button>
+            <span>{{ product.quantity }}</span>
+            <button type="button" class="item_increase" (click)="increase(product.id)">
+              <i></i>
+            </button>
+            <button type="button" class="remove_item" (click)="showAlert(product.id)">
+              <i class="icon_close"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td class="cart_totalvalue" colspan="4"> Total Due Amount:
+          <span class="total_price">
+            {{ totalValue | currency: 'EUR':'symbol':'1.2-2':'pt' }}
+          </span>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

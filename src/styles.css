@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+#app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 60px 1fr 40px;
+  grid-template-columns: 1fr;
+  grid-template-areas: "header" "main" "footer";
+  font-family: 'Roboto', sans-serif;
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  grid-area: header;
+  background-color: #2d383e;
+  z-index: 3;
+}
+
+.app-main {
+  grid-area: main;
+}
+
+.app-footer {
+  grid-area: footer;
+  background-color: #2d383e;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    background-color: #49b9d1;
+  }
+}

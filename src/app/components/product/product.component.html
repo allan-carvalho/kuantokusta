@@ -1,0 +1,30 @@
+<div class="products_loading" *ngIf="loading"></div>
+
+<div class="products_board" *ngIf="!loading">
+  <div class="toast_container">
+    <ng-container #toastContainer></ng-container>
+  </div>
+  <ul class="products_list">
+    <li *ngFor="let product of pagedProducts">
+      <i class="add_product" (click)="addToCart(product)"></i>
+      <img [src]="product.photo" [alt]="product.name" [title]="product.name">
+      <div class="product_info">
+        <span class="product_name">{{ product.name }}</span>
+        <span class="product_price">{{ product.price | currency: 'EUR':'symbol':'1.2-2':'pt' }}</span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="products_pagination">
+    <button class="prev_page" (click)="productsPagination(page - 1)" [disabled]="firstPage">
+      <i></i>
+    </button>
+
+    <span>{{ page }}</span>
+
+    <button class="next_page" (click)="productsPagination(page + 1)" [disabled]="lastPage">
+      <i></i>
+    </button>
+  </div>
+
+</div>

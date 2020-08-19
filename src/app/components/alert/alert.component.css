@@ -1,0 +1,77 @@
+.modal {
+  width: 300px;
+  height: 150px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 1px solid #ff8800;
+}
+
+.modal p {
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.modal .actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.modal .actions button {
+  width: 60px;
+  height: 30px;
+  font-size: 1rem;
+  border: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  background-color: #ff8800;
+}
+
+.modal .actions button:first-of-type {
+  margin-right: 10px;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .modal {
+    width: 400px;
+    height: 200px;
+  }
+
+  .modal p {
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+  }
+
+  .modal .actions button {
+    width: 100px;
+    height: 40px;
+    font-size: 1.2rem;
+    transition: background-color .4s;
+    -webkit-transition: background-color .4s;
+    -moz-transition: background-color .4s;
+    -ms-transition: background-color .4s;
+    -o-transition: background-color .4s;
+}
+
+  .modal .actions button:first-of-type {
+    margin-right: 20px;
+  }
+
+  .modal .actions button:hover {
+    background-color: #cc6c00;
+  }
+
+}
