@@ -15,6 +15,16 @@
 - Primeiro criar um build do projeto com o comando `yarn build:ssr`
 - Correr o comando `yarn serve:ssr` e aceder ao link `http://localhost:4000/`
 
+- Testes de Integração (JEST):
+-- `yarn test`
+-- Product Service
+--- Should return an array of products: Testa se o componente carrega os produtos da API utilizando um mock do HttpClient
+--- Should add product to cart: Testa se o produto é adicionado ao carrinho com sucesso.
+
+-- Cart Service
+--- Should load products from store: Testa se o serviço carrega os carrinhos da Store (NgRx), utiliza um mock do State
+--- Should remove product from cart: Testa se o produto é removido do carrinho com sucesso.
+
 
 
 
